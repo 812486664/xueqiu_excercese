@@ -1,0 +1,32 @@
+main:
+  profile:
+    by: id
+    locator: user_profile_icon
+    action: click
+profile:
+  login:
+    by: id
+    locator: tv_login
+    action: click
+login:
+  phone_other:
+    by: id
+    locator: tv_login_by_phone_or_others
+    action: click
+login_input:
+  pwd:
+    by: id
+    locator: tv_login_with_account
+    action: click
+  pwd_input:
+    by: id
+    locator: login_password
+    action: sendKey
+  account_input:
+    by: id
+    locator: login_account
+    action: sendKey
+  login:
+    by: id
+    locator: button_next
+    action: click

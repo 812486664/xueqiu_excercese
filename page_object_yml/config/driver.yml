@@ -1,0 +1,13 @@
+!!python/object:page_object_yml.populater.DriverConfig.DriverConfig
+android: !!python/object:page_object_yml.populater.AndroidCapability.AndroidCapability
+  appActivity: .view.WelcomeActivityAlias
+  appPackage: com.xueqiu.android
+  autoGrantPermissions: true
+  chromedriverExecutableDir: F:\chromedriver
+  deviceName: mumu
+  noReset: true
+  platformName: android
+  resetKeyboard: true
+  unicodeKeyboard: true
+implicitly_wait: 10
+url: http://localhost:4723/wd/hub
