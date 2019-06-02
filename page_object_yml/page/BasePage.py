@@ -12,6 +12,13 @@ import yaml
 
 class BasePage:
 
+    actionConfig: dict
+
+    @classmethod
+    def loadConfigFromFile(cls, filePath):
+        file = open(filePath, 'r')
+        cls.actionConfig = yaml.load(file)
+
     def find(self, kv) -> WebElement:
         return Client.driver.find_element(*kv)
 
@@ -20,11 +27,10 @@ class BasePage:
 
     def performAction(self, page: str, key: str, *text):
         # Todo 把读取文件的操作放入的公共的地方，测试用例执行的过程中只执行一次
-        file = open('../config/action.yml', 'r')
-        actionConfig = yaml.load(file)
-        by = actionConfig[page][key]['by']
-        locator = actionConfig[page][key]['locator']
-        action = actionConfig[page][key]['action']
+
+        by = self.actionConfig[page][key]['by']
+        locator = self.actionConfig[page][key]['locator']
+        action = self.actionConfig[page][key]['action']
         element = self.find((by, locator))
         if action == 'click':
             element.click()
