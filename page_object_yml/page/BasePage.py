@@ -26,8 +26,6 @@ class BasePage:
         return self.find((By.XPATH, "//*[contains(@text, %s)]" % text))
 
     def performAction(self, page: str, key: str, *text):
-        # Todo 把读取文件的操作放入的公共的地方，测试用例执行的过程中只执行一次
-
         by = self.actionConfig[page][key]['by']
         locator = self.actionConfig[page][key]['locator']
         action = self.actionConfig[page][key]['action']
